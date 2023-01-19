@@ -1,0 +1,42 @@
+body {
+    width: 980px;
+    background-color: antiquewhite;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.room-card {
+    /* width: 320px; */
+    border-radius: 16px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+    margin: 32px;
+    padding: 16px 32px;
+    background-color: white;
+}
+
+.room-card:hover {
+    background-color: rgb(225, 220, 220);
+}
+
+.room-card .action {
+    text-decoration: none;
+    color: rgb(86, 86, 86);
+}
+
+label {
+    display: block;
+    padding: 4px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.own-room {
+    background-color: #9DB68C;
+}
