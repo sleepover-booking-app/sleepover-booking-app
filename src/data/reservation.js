@@ -1,4 +1,4 @@
-import { addOwner, encodeObject, filterRelation } from "../util.js";
+import { addOwner, createPointer, encodeObject, filterRelation } from "../util.js";
 import { get, post } from "./api.js";
 
 const endpoints = {
@@ -10,6 +10,8 @@ export async function getByRoomId(roomId){
     return get(endpoints.reservationsByRoomId(roomId));
 }
 
-export async function create(roomData, userId) {
-    return post(endpoints.reservations, addOwner(roomData, userId))
+export async function create(roomData, roomId, userId) {
+    roomData = addOwner(roomData, userId);
+    roomData.room = createPointer('Room', roomId);
+    return post(endpoints.reservations, roomData);
 }

@@ -46,10 +46,24 @@ export async function detailsView(ctx) {
         startDate = new Date(startDate);
         endDate = new Date(endDate);
 
-        if(Number.isNaN(startDate.getDate()) || Number.isNaN(endDate.getDate())){
-            return alert ('Invalid date!');
+        if(Number.isNaN(startDate.getDate())) {
+            return alert ('Invalid start date!');
+        } 
+        if (Number.isNaN(endDate.getDate())){
+            return alert ('Invalid end date!');
         }
 
+        if(endDate <= startDate) {
+            return alert('End date must be after start date')
+        }
+
+        const reservationData = {
+            startDate,
+            endDate,
+        };
+
+        const result = await reservationService.create(reservationData, id, ctx.user.objectId);
+        ctx.page.redirect('/rooms/' + id);
     }
 
 }
