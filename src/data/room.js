@@ -15,6 +15,8 @@ export async function getAll(userId) {
     }
 }
 
+console.log('Test');
+
 export async function getById(id) {
     return get(endpoints.roomById + id);
 }
